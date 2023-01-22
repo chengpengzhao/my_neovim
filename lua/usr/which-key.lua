@@ -26,8 +26,11 @@ wk.register({
     g = { "<cmd>Telescope live_grep<cr>", "live grep" },
     G = { "<cmd>Telescope grep_string<cr>", "live grep cursor word" },
     h = { "<cmd>Telescope help_tags<cr>", "search vim manual" },
-    j = { "<cmd>Telescope emoji<cr>", "search emoji" },
-    k = { "<cmd>Telescope colorscheme<cr>", "colorscheme" },
+    j = { "<cmd>BufferLineCycleNext<cr>", "search emoji" },
+    k = { "<cmd>BufferLineCyclePrev<cr>", "colorscheme" },
+    -- j = { "<cmd>Telescope em ji<cr>", "search emoji" },
+    -- k = { "<cmd>Telescope colorscheme<cr>", "colorscheme" },
+    n = { "<cmd>NvimTreeToggle<cr>", "toggle nvim-tree menu" },
     m = { "<cmd>Telescope vim_bookmarks all<cr>", "search bookmarks in project" },
     o = { "<cmd>call Outline()<cr>", "search symbols in file" },
     -- leader p used for paste from system clipboard
@@ -97,6 +100,7 @@ wk.register({
       r = { "<cmd>call QuickRun()<cr>", "run code" },
       p = { "<cmd>call Preivew()<cr>", "preview" },
     },
+    n = { "<cmd>NvimTreeFindFile<cr>", " nvim-tree find file" },
     -- o 被 orgmode 使用
     q = { "<cmd>qa<cr>", "close vim" },
     s = {
@@ -117,7 +121,7 @@ wk.register({
     },
     x = { "<cmd>FloatermNew ipython<cr>", "calculated" },
   },
-  q = { "<cmd>q<cr>", "close window" },
+  -- q = { "<cmd>q<cr>", "close window" },
   c = {
     name = "+window",
     -- i f a t 被 textobject 所使用

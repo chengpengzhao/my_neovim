@@ -6,7 +6,9 @@ if exists('$SHELL')
 else
     set shell=/bin/sh
 endif
-silent! colorscheme tokyonight-strom
+set termguicolors  "set for bufferline
+silent! colorscheme nightfox
+"colorscheme gruvbox
 "colorscheme tokyonight
 "colorscheme tokyonight-night
 "colorscheme tokyonight-storm
@@ -112,8 +114,8 @@ nnoremap N Nzzzv
 set list
 set listchars=tab:»-,trail:■ "显示行尾多余空格与tab符号
 set expandtab "将制表符扩展为空格
-set tabstop=4 "设置编辑时制表符占用空格数
-set shiftwidth=4 "设置格式化时制表符占用空格数
+set tabstop=2 "设置编辑时制表符占用空格数
+set shiftwidth=2 "设置格式化时制表符占用空格数
 set softtabstop=0 " 关闭softtabstop 永远不要将空格和tab混合输入
 set autoindent   " Indent at the same level of the previous line 开启自动缩进
 set smartindent "开启智能对齐
@@ -131,7 +133,7 @@ set magic
 "very magic模式，使用\v前缀，其后模式中除 '0'-'9'，'a'-'z'，'A'-'Z' 和 '_' 之外的字符都当作特殊字符解释；
 "very
 "nomagic模式，使用\V前缀，其后模式中只有反斜杠（\）具有特殊意义，用于原义查找。
-nnoremap / /\v
+"nnoremap / /\v
 "cnoremap %s/ %s/\v
 
 
@@ -171,23 +173,23 @@ let mapleader = ","
 cnoremap hl  nohlsearch<CR>
 
 "buffer前后跳转
-noremap <Leader>j :bnext<CR>
-noremap <Leader>k :bpre<CR>
+"noremap <Leader>j :bnext<CR>
+"noremap <Leader>k :bpre<CR>
 
 "选择全文
 noremap a <Esc>ggVG<CR>
 
 "Tabs，各窗口间切换
 "WSL系统可以使用S-tab切换了，故修改为更方便的快捷键
-nnoremap <Tab> gt
-nnoremap <S-Tab> gT
-nnoremap <silent> <S-t> :tabnew<CR>
+"nnoremap <Tab> gt
+"nnoremap <S-Tab> gT
+"nnoremap <silent> <S-t> :tabnew<CR>
 
 "普通模式用<C-y>复制到系统剪切板，<C-y>y也可用
-noremap <C-y> "+y
+noremap <leader>y "+y
 
 "空格快速进入命令模式
-noremap  <Space> :
+"noremap  <Space> :
 
 "打开OpenFOAM相关文件时为了方便输入命令加了下面这个映射,!表示输入系统shell命令
 "autocmd Filetype foam256* noremap  <Space> :!
@@ -305,8 +307,8 @@ augroup END
 "" Mappings
 "*****************************************************************************
 "" Split
-noremap <Leader>h :<C-u>split<CR>
-noremap <Leader>v :<C-u>vsplit<CR>
+"noremap <Leader>h :<C-u>split<CR>
+"noremap <Leader>v :<C-u>vsplit<CR>
 
 "" Switching windows
 noremap <C-j> <C-w>j
@@ -346,13 +348,10 @@ augroup END
 "=========================================================================="
 "" load Plugs{{{
 lua require('plugins')
-set termguicolors  "set for bufferline
 lua require('usr.bufferline')
 lua require('usr.nvim-tree')
-noremap <M-n> :NvimTreeToggle<CR> "set for nvim-tree
-noremap <C-n> :NvimTreeFindFile<CR>
 lua require('usr.which-key')
-lua require("colorizer").setup{'css'; 'javascript'; 'vim'; html = { mode = 'foreground';}}
+"lua require("colorizer").setup{'css'; 'javascript'; 'vim'; html = { mode = 'foreground';}}
 
 " 加载 vim 配置, 参考 https://github.com/jdhao/nvim-config
 let s:core_conf_files = [
