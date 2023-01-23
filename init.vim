@@ -186,7 +186,9 @@ noremap a <Esc>ggVG<CR>
 "nnoremap <silent> <S-t> :tabnew<CR>
 
 "普通模式用<C-y>复制到系统剪切板，<C-y>y也可用
-noremap <leader>y "+y
+vnoremap <leader>y "+y
+noremap <leader>p "+p
+vnoremap <leader>d "+d
 
 "空格快速进入命令模式
 "noremap  <Space> :
@@ -351,13 +353,23 @@ lua require('plugins')
 lua require('usr.bufferline')
 lua require('usr.nvim-tree')
 lua require('usr.which-key')
+lua require('usr.code_runner')
+lua require('usr.hydra')
+lua require('usr.nvim-treesitter')
+nn xx x
+"因为 nvim-treesitter-textobjects 使用 x 来跳转，原始的 x 被映射为 xx
+lua require('usr.telescope')
+lua require("nvim-surround").setup{}
+lua require('gitsigns').setup{}
+lua require('nvim-autopairs').setup{}
+lua require('spellsitter').setup{}
 "lua require("colorizer").setup{'css'; 'javascript'; 'vim'; html = { mode = 'foreground';}}
 
 " 加载 vim 配置, 参考 https://github.com/jdhao/nvim-config
 let s:core_conf_files = [
       \ 'airline.vim',
       "\ 'misc.vim',
-      "\ 'coc.vim',
+      \ 'coc.vim',
       "\ 'debug.vim',
       "\ 'wilder.vim',
       "\ 'startify.vim',

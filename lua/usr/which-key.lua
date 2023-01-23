@@ -34,6 +34,7 @@ wk.register({
     m = { "<cmd>Telescope vim_bookmarks all<cr>", "search bookmarks in project" },
     o = { "<cmd>call Outline()<cr>", "search symbols in file" },
     -- leader p used for paste from system clipboard
+    r = { "<cmd>RunCode<cr>", "code runner" },
     s = { "<cmd>Telescope coc workspace_symbols<cr>", "search symbols in project" },
 
     -- " 使用 <leader> [number] 切换到第 [number] 个 buffer

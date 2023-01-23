@@ -5,11 +5,13 @@ vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
 
-  -- 外观配置
+  -- 基础与外观配置
   use 'wbthomason/packer.nvim' -- Packer can manage itself
   -- use 'folke/tokyonight.nvim' -- 颜色主题
   -- use 'ellisonleao/gruvbox.nvim' -- 颜色主题
   use "EdenEast/nightfox.nvim" -- 颜色主题
+  use 'nvim-lua/plenary.nvim' -- 很多 lua 插件依赖的库
+  use { 'neoclide/coc.nvim', branch = 'release' } -- lsp
   use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'}  --上方标签栏
   use {
       'nvim-tree/nvim-tree.lua',  -- 文件侧边菜单
@@ -24,7 +26,13 @@ return require('packer').startup(function(use)
   -- vim实用
   use 'folke/which-key.nvim' -- 用于配置和提示快捷键
   use 'norcalli/nvim-colorizer.lua' -- 显示 #FFFFFF 等代表的颜色
+
+  -- treesitter
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }  -- 更加的智能的高亮等功能
+  use 'nvim-treesitter/nvim-treesitter-textobjects'
+  use 'RRethy/nvim-treesitter-textsubjects'
+  use 'lewis6991/spellsitter.nvim' -- 当检查拼写的时候，仅仅检查注释
+
   use 'kylechui/nvim-surround' -- 快速编辑单词两侧的符号
   use 'tpope/vim-repeat' -- 扩展了vim 中 . 的功能
   use 'kana/vim-textobj-user'  -- 扩展vim中的textobj
@@ -33,8 +41,18 @@ return require('packer').startup(function(use)
   use 'kana/vim-textobj-function'
   use 'sgur/vim-textobj-parameter'
   use 'windwp/nvim-autopairs' -- 自动括号匹配
-  use 'lewis6991/spellsitter.nvim' -- 当检查拼写的时候，仅仅检查注释
   use 'Yggdroot/indentLine'
+
+  use { 'CRAG666/code_runner.nvim', requires = 'nvim-lua/plenary.nvim' } -- 一键运行代码
+  use 'anuvyklack/hydra.nvim' -- 设置快捷键，可以用于调整 window 大小等
+  -- 基于 telescope 的搜索
+  use 'nvim-telescope/telescope.nvim'
+  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' } -- telescope 搜索的插件，可以提升搜索效率
+  use 'fannheyward/telescope-coc.nvim' -- 搜索 coc 提供的符号
+  use 'dhruvmanila/telescope-bookmarks.nvim' -- 搜索 bookmarks
+  use 'crispgm/telescope-heading.nvim' -- Telescope coc 没有 outline，所以只好使用这个
+  use 'xiyaowong/telescope-emoji.nvim' -- 使用 telescope 搜索 emoji 表情
+  use 'tom-anders/telescope-vim-bookmarks.nvim' -- 辅助书签的搜索
 
 
   -- git 管理
