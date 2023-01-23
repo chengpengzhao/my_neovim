@@ -6,12 +6,15 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
 
   -- 基础与外观配置
+  use { 'lewis6991/impatient.nvim', config = [[require('impatient')]] }  -- 加快nvim加载速度
   use 'wbthomason/packer.nvim' -- Packer can manage itself
+  use 'nvim-lua/plenary.nvim' -- 很多 lua 插件依赖的库
   -- use 'folke/tokyonight.nvim' -- 颜色主题
   -- use 'ellisonleao/gruvbox.nvim' -- 颜色主题
   use "EdenEast/nightfox.nvim" -- 颜色主题
-  use 'nvim-lua/plenary.nvim' -- 很多 lua 插件依赖的库
   use { 'neoclide/coc.nvim', branch = 'release' } -- lsp
+  use 'liuchengxu/vista.vim' -- symbols and tags导航栏
+  use 'mhinz/vim-startify' -- 启动界面
   use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'}  --上方标签栏
   use {
       'nvim-tree/nvim-tree.lua',  -- 文件侧边菜单
@@ -22,10 +25,16 @@ return require('packer').startup(function(use)
   }
   use 'vim-airline/vim-airline' -- 下方状态栏
   use 'vim-airline/vim-airline-themes' -- 状态栏的主题
+  use {'gelguy/wilder.nvim', requires = 'romgrk/fzy-lua-native'}  -- 原生command line升级
+  use 'xiyaowong/nvim-transparent' -- 可以移除掉背景色，让 vim 透明
 
   -- vim实用
   use 'folke/which-key.nvim' -- 用于配置和提示快捷键
+  use 'kazhala/close-buffers.nvim' -- buffer进阶管理
   use 'norcalli/nvim-colorizer.lua' -- 显示 #FFFFFF 等代表的颜色
+  use 'martins3/fcitx.nvim' -- 自动切换输入法
+  use 'rmagatti/auto-session' -- 打开 vim 的时候，自动回复上一次打开的样子
+  use 'voldikss/vim-floaterm' -- 以悬浮窗口的形式打开终端
 
   -- treesitter
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }  -- 更加的智能的高亮等功能
@@ -53,6 +62,7 @@ return require('packer').startup(function(use)
   use 'crispgm/telescope-heading.nvim' -- Telescope coc 没有 outline，所以只好使用这个
   use 'xiyaowong/telescope-emoji.nvim' -- 使用 telescope 搜索 emoji 表情
   use 'tom-anders/telescope-vim-bookmarks.nvim' -- 辅助书签的搜索
+  use 'AckslD/nvim-neoclip.lua' -- 保存 macro
 
 
   -- git 管理

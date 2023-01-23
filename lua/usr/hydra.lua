@@ -23,7 +23,7 @@ Hydra({
     end,
   },
   mode = 'n',
-  body = 'ca',
+  body = 'aws',
   heads = {
     { 'k', '5<C-w>+' },
     { 'j', '5<C-w>-', { desc = 'j/k height' } },

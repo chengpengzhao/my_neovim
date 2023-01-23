@@ -363,16 +363,16 @@ lua require("nvim-surround").setup{}
 lua require('gitsigns').setup{}
 lua require('nvim-autopairs').setup{}
 lua require('spellsitter').setup{}
-"lua require("colorizer").setup{'css'; 'javascript'; 'vim'; html = { mode = 'foreground';}}
+lua require("colorizer").setup{'css'; 'javascript'; 'vim'; html = { mode = 'foreground';}}
 
 " 加载 vim 配置, 参考 https://github.com/jdhao/nvim-config
 let s:core_conf_files = [
       \ 'airline.vim',
-      "\ 'misc.vim',
+      \ 'startify.vim',
+      \ 'wilder.vim',
       \ 'coc.vim',
+      \ 'misc.vim',
       "\ 'debug.vim',
-      "\ 'wilder.vim',
-      "\ 'startify.vim',
       \ ]
 
 for s:fname in s:core_conf_files
