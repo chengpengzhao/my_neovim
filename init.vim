@@ -346,6 +346,10 @@ augroup vimrc-javascript
   autocmd FileType javascript setl tabstop=4|setl shiftwidth=4|setl expandtab softtabstop=4
 augroup END
 
+" 让远程的 server 内容拷贝到系统剪切板中，具体参考 https://github.com/ojroques/vim-oscyank
+"autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '+' | execute 'OSCYankReg +' | endif
+"autocmd TextYankPost * if v:event.operator is 'd' && v:event.regname is '+' | execute 'OSCYankReg +' | endif
+
 "}}}
 "=========================================================================="
 "" load Plugs{{{
@@ -372,7 +376,7 @@ let s:core_conf_files = [
       \ 'wilder.vim',
       \ 'coc.vim',
       \ 'misc.vim',
-      "\ 'debug.vim',
+      \ 'debug.vim',
       \ ]
 
 for s:fname in s:core_conf_files

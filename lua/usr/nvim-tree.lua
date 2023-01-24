@@ -31,11 +31,11 @@ require 'nvim-tree'.setup {
     signcolumn = 'no',
   },
   renderer = {
-      add_trailing = false,
-      group_empty = false,
-      indent_width = 2,
-      indent_markers = { enable = true,
-      },
+    add_trailing = false,
+    group_empty = false,
+    indent_width = 2,
+    indent_markers = { enable = true,
+    },
   },
   actions = {
     open_file = {

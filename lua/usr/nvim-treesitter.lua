@@ -13,12 +13,13 @@ require 'nvim-treesitter.configs'.setup {
     additional_vim_regex_highlighting = { 'org' },
   },
   -- ensure_installed = "maintained", 这个可以安装目前维护的所有语言 treesitter 插件。
-  ensure_installed = {'lua', 'python', 'c', 'bash', 'beancount', 'cmake', 'cpp', 'css', 'gitignore', 'fortran', 'gitcommit', 'yaml' , 'vim' },
+  ensure_installed = { 'lua', 'python', 'c', 'bash', 'beancount', 'cmake', 'cpp', 'css', 'gitignore', 'fortran',
+    'gitcommit', 'yaml', 'vim' },
 }
 
 -- 从 https://github.com/nvim-treesitter/nvim-treesitter-textobjects 拷贝过来的配置
 require('nvim-treesitter.configs').setup {
-  textsubjects = {    -- 智能选择
+  textsubjects = { -- 智能选择
     enable = true,
     prev_selection = ',', -- (Optional) keymap to select the previous selection
     keymaps = {
@@ -30,7 +31,7 @@ require('nvim-treesitter.configs').setup {
 }
 
 require 'nvim-treesitter.configs'.setup {
-  textobjects = {   -- 智能跳转
+  textobjects = { -- 智能跳转
     select = {
       enable = true,
 
@@ -80,8 +81,8 @@ require 'nvim-treesitter.configs'.setup {
   },
 }
 
-require'nvim-treesitter.configs'.setup {
-  incremental_selection = {   -- 启用增量选择
+require 'nvim-treesitter.configs'.setup {
+  incremental_selection = { -- 启用增量选择
     enable = true,
     keymaps = {
       init_selection = '<CR>',
