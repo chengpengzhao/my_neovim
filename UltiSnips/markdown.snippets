@@ -1,0 +1,64 @@
+# vim:set foldenable foldmethod=marker:
+
+# 定义math区域，snippets只在该区域生效，要求Vim能识别当前区域（安装Vim-markdown等插件）
+# i 表示片段可在句中被触发。默认是只有在前面有多个空格或者在行首时才会被触发。
+# A 表示片段会被自动触发
+# w 表示片段只会在关键词为单独单词的情况下被触发
+# r 表示关键词使用正则表达式。正则表达式必须用 两个引号' '包围
+# b 表示只有在一行的开头才会被触发
+#=================================================================================================
+#写博客用{{{
+
+snippet title "new post"
+---
+title:    "$1"
+date:    `!v strftime("%Y-%m-%d")`
+author:    "zcp"
+img:    "$2"
+top:    ${3:false}
+cover:    ${4:true}
+coverImg:    "$2"
+password:    ${5:}
+toc:    ${6:true}
+mathjax:    ${7:false}
+summary:    ${8:}
+categories:
+    -  [ ${9: ${10: $13 ]
+    -  [ $12 } ]
+    -  [ $11 } ]
+tags: 
+    -  ${14: ${15: $18 
+    -  $17 } 
+    -  $16 } 
+
+---
+
+$0
+endsnippet
+
+priority 100
+snippet li "Link to something" i
+[${1:${VISUAL:Text}}](${2:http://www.url.com})$0
+endsnippet
+
+priority 100
+snippet img "Image with title"  i
+![${1:pic alt}](${2:path}${3/.+/ "/}${3:opt title}${3/.+/"/})$0
+endsnippet
+
+snippet em "markdown空格"  i
+&emsp;
+endsnippet
+
+snippet br "markdown换行"  i
+<br>
+endsnippet
+
+snippet rb "注音" i
+{% ruby ${1:${VISUAL:Text}}|${2: } %}
+endsnippet
+
+snippet ref "文献" i
+<span id="$1"></span>
+$0
+endsnippet

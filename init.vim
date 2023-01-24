@@ -358,7 +358,6 @@ lua require('usr.bufferline')
 lua require('usr.nvim-tree')
 lua require('usr.which-key')
 lua require('usr.code_runner')
-lua require('usr.hydra')
 lua require('usr.nvim-treesitter')
 nn xx x
 "因为 nvim-treesitter-textobjects 使用 x 来跳转，原始的 x 被映射为 xx

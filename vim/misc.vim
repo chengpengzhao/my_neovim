@@ -1,7 +1,45 @@
 let g:transparent_enabled = v:false " nvim-transparent
 
+" indentline
+let g:indentLine_enabled = 1
+let g:indentLine_color_term = 202
+let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+
+"Vim-markdown设置
+let g:vim_markdown_conceal = 0
+let g:tex_conceal = ""
+let g:vim_markdown_conceal_code_blocks = 0
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_no_default_key_mappings = 1
+let g:vim_markdown_toc_autofit = 1
+let g:vim_markdown_folding_level = 1
+let g:vim_markdown_auto_insert_bullets = 0
+let g:vim_markdown_strikethrough = 0
+let g:vim_markdown_new_list_item_indent = 0
+let g:vim_markdown_math = 1
+ 
+"gutentags配置，由于依靠compile_command.json总是跳转到安装目录，不方便编辑源文件，还是用ctags吧
+" gutentags 搜索工程目录的标志，碰到这些文件/目录名就停止向上一级目录递归
+let g:gutentags_modules = ['ctags']
+let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project']
+let g:gutentags_ctags_exclude=['.ccls-cache','build','install']
+" 所生成的数据文件的名称
+let g:gutentags_ctags_tagfile = '.tags'
+" 将自动生成的 tags 文件全部放入 ~/.cache/tags 目录中，避免污染工程目录
+let s:vim_tags = expand('~/.cache/tags')
+let g:gutentags_cache_dir = s:vim_tags
+" 检测 ~/.cache/tags 不存在就新建 "
+if !isdirectory(s:vim_tags)
+   silent! call mkdir(s:vim_tags, 'p')
+endif
+" 配置 ctags 的参数
+let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
+let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']
+let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
+
 " beancount
-let b:beancount_root= '/Users/zhaochengpeng/Desktop/repositories/beanCount_zcp/zcp.bean'
+let g:python3_host_prog = '/usr/bin/python3'  "need correct python environment to auto complete
+let b:beancount_root= '~/Desktop/repositories/beanCount_zcp/zcp.bean'
 " default or chunks
 let g:beancount_account_completion= 'default'
 let g:beancount_separator_col= 10
@@ -42,13 +80,9 @@ let g:bookmark_no_default_key_mappings = 1
 
 " 默认不要折叠 markdown
 let g:vim_markdown_folding_disabled = 1
-
 let g:markdown_fenced_languages = ['html', 'python', 'sh', 'c', 'cpp', 'diff', 'rust']
 let g:markdown_minlines = 200
 
 " 自动关闭 vim 如果 window 中只有一个 filetree
 " https://github.com/kyazdani42/nvim-tree.lua
 autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
-
-" 定义预先录制的 macro
-let @j = 'ysiw`\<Esc>' " 在一个 word 两侧添加上 `，例如将 abc 变为 `abc`

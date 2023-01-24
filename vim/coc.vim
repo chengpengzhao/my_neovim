@@ -50,12 +50,27 @@ else
   inoremap <silent><expr> <c-@> coc#refresh()
 endif
 
+" Use <C-l> for trigger snippet expand.
+imap <C-l> <Plug>(coc-snippets-expand)
+" Use <C-j> for select text for visual placeholder of snippet.
+vmap <cr> <Plug>(coc-snippets-select)
+" Use <C-j> for jump to next placeholder, it's default of coc.nvim
+let g:coc_snippet_next = '<c-j>'
+" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+let g:coc_snippet_prev = '<c-k>'
+" Use <C-j> for both expand and jump (make expand higher priority.)
+imap <C-j> <Plug>(coc-snippets-expand-jump)
+
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation.
 nmap <silent> <nowait> gd : <C-u>Telescope coc definitions<cr>
 nmap <silent> <nowait> gh : <C-u>Telescope coc declarations<cr>
 nmap <silent> <nowait> gy : <C-u>Telescope coc type_definitions<cr>
-nmap <silent> <nowait> gk : <C-u>Telescope coc implementations<cr>
+nmap <silent> <nowait> gi : <C-u>Telescope coc implementations<cr>
 nmap <silent> <nowait> gr : <C-u>Telescope coc references_used<cr>
 
 " Use K to show documentation in preview window.
@@ -73,6 +88,7 @@ endfunction
 
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
+autocmd CursorHoldI * sil call CocActionAsync('showSignatureHelp')
 
 augroup mygroup
   autocmd!
@@ -92,8 +108,50 @@ if has('nvim-0.4.0') || has('patch-8.2.0750')
   vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
 endif
 
+
+call coc#config('coc.preferences', {
+			\ "autoTrigger": "always",
+			\ "maxCompleteItemCount": 10,
+			\ "codeLens.enable": 1,
+			\ "diagnostic.virtualText": 1,
+			\})
+
+" c/c++ language server 设置
+call coc#config("languageserver", {
+      \"ccls": {
+      \  "command": "ccls",
+      \  "filetypes": ["c", "cpp"],
+      \  "rootPatterns": ["compile_commands.json", ".svn/", ".git/"],
+      \  "index": {
+      \     "threads": 0
+      \  },
+      \  "initializationOptions": {
+      \     "cache": {
+      \       "directory": ".ccls-cache"
+      \     },
+      \     "highlight": { "lsRanges" : v:true }
+      \   },
+      \  "client": {
+      \    "snippetSupport": v:true
+      \   }
+      \},
+      \ "fortran": {
+      \ "command": "fortls",
+      \ "filetypes": ["fortran"],
+      \ "rootPatterns": [".fortls", ".git/"]}
+      \})
+call coc#config("diagnostic-languageserver.filetypes", {
+      \"sh": "shellcheck",
+      \})
+
+call coc#config("diagnostic-languageserver.formatFiletypes",{
+      \"sh": "shfmt",
+      \})
+
 " coc.nvim 插件，用于支持 python java 等语言
 let s:coc_extensions = [
+      \ 'coc-python',
+      \ 'coc-word',
       \ 'coc-pyright',
       \ 'coc-css',
       \ 'coc-html',
@@ -106,6 +164,7 @@ let s:coc_extensions = [
       \ 'coc-snippets',
       \ 'coc-go',
       \ 'coc-sh',
+      \ 'coc-git',
       \ 'coc-diagnostic',
       \ 'coc-sumneko-lua',
       \ 'coc-xml',

@@ -9,7 +9,6 @@ return require('packer').startup(function(use)
   use { 'lewis6991/impatient.nvim', config = [[require('impatient')]] } -- 加快nvim加载速度
   use 'wbthomason/packer.nvim' -- Packer can manage itself
   use 'nvim-lua/plenary.nvim' -- 很多 lua 插件依赖的库
-  -- use 'folke/tokyonight.nvim' -- 颜色主题
   -- use 'ellisonleao/gruvbox.nvim' -- 颜色主题
   use "EdenEast/nightfox.nvim" -- 颜色主题
   use { 'neoclide/coc.nvim', branch = 'release' } -- lsp
@@ -38,6 +37,7 @@ return require('packer').startup(function(use)
   use 'rmagatti/auto-session' -- 打开 vim 的时候，自动回复上一次打开的样子
   use 'voldikss/vim-floaterm' -- 以悬浮窗口的形式打开终端
   use 'MattesGroeger/vim-bookmarks' -- 书签
+  use 'ludovicchabant/vim-gutentags' --ctags
 
   -- treesitter
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' } -- 更加的智能的高亮等功能
@@ -59,11 +59,8 @@ return require('packer').startup(function(use)
   use 'mbbill/undotree' -- 显示编辑的历史记录
   use 'mg979/vim-visual-multi' -- 同时编辑多个位置
   use 'windwp/nvim-spectre' -- 媲美 vscode 的多文件替换
-  use 'ggandor/lightspeed.nvim' -- 快速移动
 
 
-  use { 'CRAG666/code_runner.nvim', requires = 'nvim-lua/plenary.nvim' } -- 一键运行代码
-  use 'anuvyklack/hydra.nvim' -- 设置快捷键，可以用于调整 window 大小等
   -- 基于 telescope 的搜索
   use 'nvim-telescope/telescope.nvim'
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' } -- telescope 搜索的插件，可以提升搜索效率
@@ -88,7 +85,8 @@ return require('packer').startup(function(use)
   use 'tpope/vim-markdown' -- markdown 语法高亮
 
   -- tools
-  use 'jonsmithers/vim-beancount' -- beancount记账
+  use 'nathangrigg/vim-beancount' -- beancount记账
+  use { 'CRAG666/code_runner.nvim', requires = 'nvim-lua/plenary.nvim' } -- 一键运行代码
   use 'ojroques/vim-oscyank' -- 让 nvim 在远程 server 上拷贝到本地剪切板上
 
 end)
