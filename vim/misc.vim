@@ -6,6 +6,27 @@ func! Outline()
     exec "Telescope coc document_symbols"
   endif
 endf
+" 实现一键运行各种文件，适合非交互式的，少量的代码，比如 leetcode
+func! QuickRun()
+  exec "w"
+  let ext = expand("%:e")
+  if ext ==# "tex"
+    exec "VimtexCompile"
+  else
+    exec "RunCode"
+  endif
+endf
+func! Preivew()
+  exec "w"
+  let ext = expand("%:e")
+  if ext ==# "md"
+    exec "MarkdownPreview"
+  elseif ext ==# "tex"
+    exec "VimtexView"
+  else
+    echo "no preview"
+  endif
+endf
 
 let g:transparent_enabled = v:false " nvim-transparent
 
