@@ -13,7 +13,7 @@ require 'nvim-treesitter.configs'.setup {
     additional_vim_regex_highlighting = false
   },
   -- ensure_installed = "maintained", 这个可以安装目前维护的所有语言 treesitter 插件。
-  ensure_installed = { 'lua', 'python', 'c', 'bash', 'beancount', 'cmake', 'cpp', 'css', 'gitignore', 'fortran',
+  ensure_installed = { 'lua', 'python', 'c', 'bash', 'beancount', 'cmake', 'cpp', 'css', 'fortran',
     'gitcommit', 'yaml', 'vim', 'markdown' },
 }
 
