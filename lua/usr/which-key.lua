@@ -25,16 +25,15 @@ wk.register({
     F = { "<cmd>Telescope git_files<cr>", "search files (exclude submodules)" },
     g = { "<cmd>Telescope live_grep<cr>", "live grep" },
     G = { "<cmd>Telescope grep_string<cr>", "live grep cursor word" },
-    h = { "<cmd>Telescope help_tags<cr>", "search vim manual" },
+    h = { "<cmd>Telescope heading<cr>", "jump between headings" },
+    -- h = { "<cmd>Telescope help_tags<cr>", "search vim manual" },
     j = { "<cmd>BufferLineCycleNext<cr>", "search emoji" },
     k = { "<cmd>BufferLineCyclePrev<cr>", "colorscheme" },
-    -- j = { "<cmd>Telescope em ji<cr>", "search emoji" },
+    -- j = { "<cmd>Telescope emoji<cr>", "search emoji" },
     -- k = { "<cmd>Telescope colorscheme<cr>", "colorscheme" },
     n = { "<cmd>NvimTreeToggle<cr>", "toggle nvim-tree menu" },
     m = { "<cmd>Telescope vim_bookmarks all<cr>", "search bookmarks in project" },
     o = { "<cmd>call Outline()<cr>", "search symbols in file" },
-    -- leader p used for paste from system clipboard
-    r = { "<cmd>RunCode<cr>", "code runner" },
     s = { "<cmd>Telescope coc workspace_symbols<cr>", "search symbols in project" },
 
     -- " 使用 <leader> [number] 切换到第 [number] 个 buffer
@@ -75,6 +74,8 @@ wk.register({
       name = "+buffer",
       c = { "<cmd>BDelete hidden<cr>", "close invisible buffers" },
       d = { "<cmd>bdelete %<cr>", "close current buffers" },
+      t = { "<cmd>%bd|e#|BDelete hidden<cr>", "close other buffers" },
+      -- too slow t = { "<cmd>BDelete other<cr>", "close other buffers" },
     },
     f = {
       name = "+file",
@@ -104,6 +105,14 @@ wk.register({
     n = { "<cmd>NvimTreeFindFile<cr>", " nvim-tree find file" },
     -- o 被 orgmode 使用
     q = { "<cmd>qa<cr>", "close vim" },
+    -- leader p used for paste from system clipboard
+    r = {
+      name = "+code runner",
+      c = { "<cmd>RunCode<cr>",
+        "Run based on file type, first checking if belongs to project, then if filetype mapping exists" },
+      f = { "<cmd>RunFile<cr>", "Run the current file(optionally you can select an opening mode)" },
+      p = { "<cmd>RunProject<cr>", "Run the current project(If you are in a project otherwise you will not do anything" },
+    },
     s = {
       name = "+search",
       P = { "<cmd>lua require('spectre').open_visual({select_word=true})<cr>",
@@ -140,18 +149,11 @@ wk.register({
     name = "+bookmarks",
     a = { "<cmd>Telescope vim_bookmarks all<cr>", "list marks in project" },
     m = { "<cmd>BookmarkToggle<cr>", "toggle bookmark" },
+    n = { "<cmd>BookmarkNext<cr>", "next bookmark" },
+    p = { "<cmd>BookmarkPrev<cr>", "previous bookmark" },
+    i = { "<cmd>BookmarkAnnotate<cr>", "Add/edit/remove annotation at current line" },
+    c = { "<cmd>BookmarkClear<cr>", "Clear bookmarks in current buffer only" },
     x = { "<cmd>BookmarkClearAll<cr>", "remove all bookmarks in project" },
   },
   ["<tab>"] = { "<cmd>wincmd w<cr>", "switch window" },
 })
-
-wk.register({
-  ["<space>"] = {
-    l = {
-      c = { ":Commentary<cr>", "comment code" },
-      f = { "<Plug>(coc-format-selected)<cr>", "format selected code" },
-    },
-    s = { "<cmd>lua require('spectre').open_visual()<cr>", "search" }
-  },
-  q = { "<cmd>q<cr>", "close window" },
-}, { mode = "v" })

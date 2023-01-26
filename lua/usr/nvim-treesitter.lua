@@ -2,19 +2,19 @@ require 'nvim-treesitter.configs'.setup {
   -- If TS highlights are not enabled at all, or disabled via `disable` prop, highlighting will fallback to default Vim syntax highlighting
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
-  sync_install = false,
+  sync_install = true,
   -- Automatically install missing parsers when entering buffer
   -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
-  auto_install = true,
+  auto_install = false,
 
   highlight = {
     enable = true,
-    disable = { 'org' },
-    additional_vim_regex_highlighting = { 'org' },
+    -- disable = { 'markdown' },
+    additional_vim_regex_highlighting = false
   },
   -- ensure_installed = "maintained", 这个可以安装目前维护的所有语言 treesitter 插件。
   ensure_installed = { 'lua', 'python', 'c', 'bash', 'beancount', 'cmake', 'cpp', 'css', 'gitignore', 'fortran',
-    'gitcommit', 'yaml', 'vim' },
+    'gitcommit', 'yaml', 'vim', 'markdown' },
 }
 
 -- 从 https://github.com/nvim-treesitter/nvim-treesitter-textobjects 拷贝过来的配置

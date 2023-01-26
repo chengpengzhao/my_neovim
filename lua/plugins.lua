@@ -57,7 +57,7 @@ return require('packer').startup(function(use)
   use 'tpope/vim-commentary' -- 快速注释代码
   use 'honza/vim-snippets' -- snippets集合
   use 'mbbill/undotree' -- 显示编辑的历史记录
-  use 'mg979/vim-visual-multi' -- 同时编辑多个位置
+  -- use 'mg979/vim-visual-multi' -- 同时编辑多个位置
   use 'windwp/nvim-spectre' -- 媲美 vscode 的多文件替换
 
 
