@@ -1,3 +1,12 @@
+" 因为 telescope-coc 没有实现 outline，所以只能靠 telescope-heading.nvim 实现
+func! Outline()
+  if expand("%:e") ==# "md"
+    exec "Telescope heading"
+  else
+    exec "Telescope coc document_symbols"
+  endif
+endf
+
 let g:transparent_enabled = v:false " nvim-transparent
 
 " indentline
