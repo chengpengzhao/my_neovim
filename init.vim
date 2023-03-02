@@ -359,6 +359,7 @@ lua require('usr.nvim-tree')
 lua require('usr.which-key')
 lua require('usr.code_runner')
 lua require('usr.nvim-treesitter')
+lua require('usr.git-conflict')
 nn xx x
 "因为 nvim-treesitter-textobjects 使用 x 来跳转，原始的 x 被映射为 xx
 lua require('usr.telescope')

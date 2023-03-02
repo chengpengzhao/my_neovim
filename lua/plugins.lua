@@ -76,6 +76,7 @@ return require('packer').startup(function(use)
   use 'tpope/vim-fugitive' -- 显示 git blame，实现一些基本操作的快捷执行
   use 'rhysd/git-messenger.vim' -- 利用 git blame 显示当前行的 commit message
   use 'lewis6991/gitsigns.nvim' -- 显示改动的信息
+  use 'akinsho/git-conflict.nvim'
 
   -- markdown
   use 'iamcco/markdown-preview.nvim' -- markdown preview
