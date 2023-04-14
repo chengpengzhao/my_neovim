@@ -37,7 +37,7 @@ return require('packer').startup(function(use)
   use 'rmagatti/auto-session' -- 打开 vim 的时候，自动回复上一次打开的样子
   use 'voldikss/vim-floaterm' -- 以悬浮窗口的形式打开终端
   use 'MattesGroeger/vim-bookmarks' -- 书签
-  use 'ludovicchabant/vim-gutentags' --ctags
+  -- use 'ludovicchabant/vim-gutentags' --ctags
 
   -- treesitter
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' } -- 更加的智能的高亮等功能

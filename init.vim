@@ -274,6 +274,9 @@ autocmd BufNewFile,BufRead *.ejs set filetype=html
 "Scons相关脚本识别为python
 autocmd BufNewFile,BufRead SConstruct set filetype=python
 autocmd BufNewFile,BufRead SConscript set filetype=python
+
+autocmd BufNewFile,BufRead *.xmf set filetype=xml
+autocmd BufNewFile,BufRead *.xdmf set filetype=xml
 "需要安装black(pip3 install black)
 autocmd Filetype python nnoremap <F8> :call PyFormat()<CR><CR>
 func! PyFormat()
