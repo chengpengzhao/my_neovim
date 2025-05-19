@@ -14,13 +14,12 @@ return require('packer').startup(function(use)
   use { 'neoclide/coc.nvim', branch = 'release' } -- lsp
   use 'liuchengxu/vista.vim' -- symbols and tags导航栏
   use 'mhinz/vim-startify' -- 启动界面
-  use { 'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons' } --上方标签栏
+  use { 'akinsho/bufferline.nvim',  requires = 'nvim-tree/nvim-web-devicons' } --上方标签栏
   use {
-    'nvim-tree/nvim-tree.lua', -- 文件侧边菜单
+    'nvim-tree/nvim-tree.lua',
     requires = {
-      'nvim-tree/nvim-web-devicons', -- optional, for file icons
-    }, -- 文件树
-    tag = 'nightly' -- optional, updated every week. (see issue #1193)
+      'nvim-tree/nvim-web-devicons', -- optional
+    },
   }
   use 'vim-airline/vim-airline' -- 下方状态栏
   use 'vim-airline/vim-airline-themes' -- 状态栏的主题
@@ -30,7 +29,7 @@ return require('packer').startup(function(use)
   use 'Yggdroot/indentLine' -- 显示缩进
 
   -- vim实用
-  use 'folke/which-key.nvim' -- 用于配置和提示快捷键
+  use {'folke/which-key.nvim', commit = 'ce741eb',} -- 用于配置和提示快捷键
   use 'kazhala/close-buffers.nvim' -- buffer进阶管理
   use 'norcalli/nvim-colorizer.lua' -- 显示 #FFFFFF 等代表的颜色
   use 'martins3/fcitx.nvim' -- 自动切换输入法
@@ -83,7 +82,7 @@ return require('packer').startup(function(use)
   -- install: cd ~/.local/share/nvim/site/pack/packer/start/markdown...; yarn install; yarn build
   use 'mzlogin/vim-markdown-toc' -- 自动目录生成
   use 'dhruvasagar/vim-table-mode' -- 快速编辑 markdown 的表格
-  use 'tpope/vim-markdown' -- markdown 语法高亮
+  --use 'tpope/vim-markdown' -- markdown 语法高亮
 
   -- tools
   use 'nathangrigg/vim-beancount' -- beancount记账

@@ -68,8 +68,8 @@ let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']
 let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
 
 " beancount
-let g:python3_host_prog = '/usr/bin/python3'  "need correct python environment to auto complete
-let b:beancount_root= '~/Desktop/repositories/beanCount_zcp/zcp.bean'
+let g:python3_host_prog = '/Library/Frameworks/Python.framework/Versions/3.11/bin/python3'  "need correct python environment to auto complete
+let b:beancount_root= '/Users/chengpengzhao/Desktop/zhaoCP/beanCount_zcp/zcp.bean'
 " default or chunks
 let g:beancount_account_completion= 'default'
 let g:beancount_separator_col= 10

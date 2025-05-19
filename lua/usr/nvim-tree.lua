@@ -21,10 +21,10 @@ local keymap_list = {
 require 'nvim-tree'.setup {
   view = {
     side = 'left',
-    mappings = {
-      custom_only = true,
-      list = keymap_list
-    },
+    --mappings = {
+    --  custom_only = true,
+    --  list = keymap_list
+    --},
     adaptive_size = true,
     number = true,
     relativenumber = true,

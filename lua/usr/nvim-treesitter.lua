@@ -9,7 +9,7 @@ require 'nvim-treesitter.configs'.setup {
 
   highlight = {
     enable = true,
-    -- disable = { 'markdown' },
+    disable = { 'markdown' },
     additional_vim_regex_highlighting = false
   },
   -- ensure_installed = "maintained", 这个可以安装目前维护的所有语言 treesitter 插件。
