@@ -27,7 +27,7 @@ set mouse=a "Automatically enable mouse usage
 set mousehide "Hide the mouse cursor while typing
 set fileformat=unix "有时候在windows下编写的python脚本在linux下不能运行，设置格式为unix能够自动清除多余的^M
 set hidden "Enable hidden buffers, 不保存修改也能跳转buffers
-set pastetoggle=<M-p> "激活/取消paste模式，粘贴出现自动缩进时用,按键为Alt-p
+"set pastetoggle=<M-p> "激活/取消paste模式，粘贴出现自动缩进时用,按键为Alt-p
 set nopaste "一般关闭paste模式，该模式下有的map会出问题
 set backspace=indent,eol,start " 解决插入模式下delete/backspce键失效问题(Mac用户)
 set autochdir "将工作目录自动切换到正在编辑的文件的目录。
@@ -76,7 +76,7 @@ autocmd FileType c,cpp,python set foldmethod=indent nofoldenable
 
 "解决乱码问题
 set encoding=utf-8
-set termencoding=utf-8
+"set termencoding=utf-8
 set fileencodings=utf-8,gbk,latin1
 set langmenu=zh_CN.UTF-8
 set helplang=cn

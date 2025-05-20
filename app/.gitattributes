@@ -1,0 +1,4 @@
+coc.tar.gz filter=lfs diff=lfs merge=lfs -text
+node-v22.15.1-linux-x64.tar.gz filter=lfs diff=lfs merge=lfs -text
+nvim-linux-x86_64.tar.gz filter=lfs diff=lfs merge=lfs -text
+nvim_plugin.tar.gz filter=lfs diff=lfs merge=lfs -text
